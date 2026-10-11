@@ -3,55 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAFE LLC</title>
+    <title>ZAFE LLC // Interactive Walkthrough Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #07090e;
+            --card-bg: rgba(18, 24, 38, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent-glow: #00f2fe;
+            --accent-purple: #7928ca;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: #0d1117;
-            color: #f0f6fc;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
+            justify-content: space-between;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* Ambient Grid */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .brand span {
+            color: var(--accent-glow);
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 60px auto 30px;
+            text-align: center;
+            padding: 0 20px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            color: #58a6ff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #ffffff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            font-size: 1.1rem;
-            color: #8b949e;
-            line-height: 1.6;
+        p.subheading {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        /* Interactive Search & Filters */
+        .controls {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent-glow);
+            color: #000;
+            border-color: var(--accent-glow);
+            font-weight: 700;
+        }
+
+        /* Walkthrough Cards Grid */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-glow);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 14px;
+        }
+
+        .read-btn {
+            color: var(--accent-glow);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>ZAFE LLC</h1>
-        <p>Local preview loaded successfully. Edit this file to build out your high-tech experience!</p>
-    </div>
+    <div class="grid-bg"></div>
+
+    <header>
+        <div class="brand">ZAFE<span>.LLC</span></div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Walkthrough & Guide Library</h1>
+            <p class="subheading">Search and filter interactive walkthroughs, game scripts, and tech docs.</p>
+        </section>
+
+        <!-- Interactive Search & Filter Controls -->
+        <div class="controls">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search guides by keyword or game title...">
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterCategory('walkthrough')">Walkthroughs</button>
+                <button class="filter-btn" onclick="filterCategory('mods')">Mods & Scripts</button>
+                <button class="filter-btn" onclick="filterCategory('tech')">Tech Specs</button>
+            </div>
+        </div>
+
+        <!-- Walkthrough Cards Container -->
+        <section class="guides-grid" id="guidesGrid">
+            
+            <div class="card" data-category="walkthrough" data-keywords="game walkthrough route completion guide">
+                <div>
+                    <div class="card-tag">Walkthrough</div>
+                    <h3>Main Story Route Guide</h3>
+                    <p>Complete step-by-step route choice mapping and dialogue branch options.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Updated Recently</span>
+                    <span class="read-btn">Open Guide →</span>
+                </div>
+            </div>
+
+            <div class="card" data-category="mods" data-keywords="modding tools setup installation scripts">
+                <div>
+                    <div class="card-tag">Mods & Scripts</div>
+                    <h3>Ren'Py & Engine Modding Basics</h3>
+                    <p>Custom script injection, UI overrides, and asset management workflow.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Documentation</span>
+                    <span class="read-btn">Open Guide →</span>
+                </div>
+            </div>
+
+            <div class="card" data-category="tech" data-keywords="zafe llc technology infrastructure setup">
+                <div>
+                    <div class="card-tag">Tech Specs</div>
+                    <h3>System Architecture Overview</h3>
+                    <p>Core framework configurations and deployment notes for ZAFE LLC platforms.</p>
+                </div>
+                <div class="card-footer">
+                    <span>System Specs</span>
+                    <span class="read-btn">Open Specs →</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 ZAFE LLC. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Search Script -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        // Live Search Filter Function
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const text = (card.innerText + ' ' + card.dataset.keywords).toLowerCase();
+                card.style.display = text.includes(query) ? 'flex' : 'none';
+            });
+        });
+
+        // Category Filter Function
+        function filterCategory(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
