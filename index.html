@@ -3,131 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAFE LLC // Advanced Technology Solutions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <title>ZAFE LLC</title>
     <style>
-        :root {
-            --bg-dark: #07090e;
-            --card-bg: rgba(18, 24, 38, 0.6);
-            --border: rgba(255, 255, 255, 0.08);
-            --accent-glow: #00f2fe;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
+            background-color: #0d1117;
+            color: #f0f6fc;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            overflow-x: hidden;
-        }
-
-        /* Subtle Background Grid */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
-            background-size: 32px 32px;
-            z-index: -1;
-        }
-
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 24px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .brand {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
-        }
-
-        .brand span {
-            color: var(--accent-glow);
-        }
-
-        /* Hero */
-        .hero {
-            max-width: 900px;
-            margin: 80px auto 40px;
+            min-height: 100vh;
             text-align: center;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .tag {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 50px;
-            background: rgba(0, 242, 254, 0.08);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            color: var(--accent-glow);
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #ffffff 30%, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: #58a6ff;
         }
 
-        p.subheading {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
+        p {
+            font-size: 1.1rem;
+            color: #8b949e;
             line-height: 1.6;
-            margin-bottom: 40px;
         }
+    </style>
+</head>
+<body>
 
-        /* Grid Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
-            width: 100%;
-        }
+    <div class="container">
+        <h1>ZAFE LLC</h1>
+        <p>Local preview loaded successfully. Edit this file to build out your high-tech experience!</p>
+    </div>
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            backdrop-filter: blur(12px);
-            transition: border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .card:hover {
-            border-color: rgba(0, 242, 254, 0.3);
-            transform: translateY(-4px
+</body>
+</html>
