@@ -178,10 +178,17 @@
         font-size: 2.2rem;
       }
       .watermark-logo {
-        width: 65px;
-        height: 65px;
-        bottom: 16px;
-        right: 16px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 100px;
+  height: auto;
+  opacity: 0.25; /* Subtle watermark opacity */
+  mix-blend-mode: screen; /* Removes the dark box background completely */
+  filter: brightness(1.2); /* Keeps the silver logo crisp */
+  pointer-events: none;
+  z-index: 1000;
+}
       }
     }
   </style>
