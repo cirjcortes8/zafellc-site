@@ -11,23 +11,26 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       background-color: #0b0e14;
-      background-image: url('bg-wallpaper.jpg'); /* Your background wallpaper */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+      /* CSS Tech Circuit Grid Effect */
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+      background-position: center center;
       color: #e2e8f0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding: 100px 20px 60px 20px; /* Increased top padding from 60px to 100px so title sits lower */
+      padding: 100px 20px 60px 20px; /* Generous top padding lowers the title */
     }
 
-    /* Main Container */
+    /* Container */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -59,18 +62,18 @@
     }
     .search-input {
       width: 100%;
-      background-color: rgba(19, 24, 34, 0.85); /* Slightly translucent for background blend */
+      background-color: #131822;
       border: 1px solid #1e293b;
       border-radius: 10px;
       padding: 16px 22px;
       color: #e2e8f0;
       font-size: 1rem;
       outline: none;
-      backdrop-filter: blur(8px);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
     .search-input:focus {
       border-color: #00e5ff;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
     }
 
     /* Filter Pills */
@@ -82,7 +85,7 @@
       flex-wrap: wrap;
     }
     .pill {
-      background-color: rgba(19, 24, 34, 0.85);
+      background-color: #131822;
       color: #94a3b8;
       border: 1px solid #1e293b;
       padding: 9px 22px;
@@ -91,7 +94,6 @@
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
-      backdrop-filter: blur(8px);
       transition: all 0.2s;
     }
     .pill.active {
@@ -99,6 +101,7 @@
       color: #0b0e14;
       border-color: #00e5ff;
       font-weight: 600;
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
     }
     .pill:hover:not(.active) {
       border-color: #334155;
@@ -112,19 +115,19 @@
       gap: 24px;
     }
     .card {
-      background-color: rgba(17, 22, 34, 0.9); /* Subtle transparency to reveal wire background */
+      background-color: #111622;
       border: 1px solid #1e293b;
       border-radius: 16px;
       padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
     .card:hover {
       border-color: #334155;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .card-category {
       font-size: 0.75rem;
