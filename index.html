@@ -25,8 +25,26 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Centers the content vertically in the view */
+      justify-content: center;
       padding: 60px 20px;
+    }
+
+    /* Floating ZAFE Watermark Styles */
+    .zafe-watermark {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 110px;
+      height: 110px;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .zafe-watermark svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.4));
     }
 
     /* Container */
@@ -244,6 +262,14 @@
       </div>
 
     </main>
+  </div>
+
+  <!-- Floating ZAFE Ring Watermark -->
+  <div class="zafe-watermark">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#00e5ff" stroke-width="2"/>
+      <text x="100" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="600" fill="#00e5ff" text-anchor="middle" letter-spacing="4">ZAFE</text>
+    </svg>
   </div>
 
 </body>
