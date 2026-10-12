@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZAFE | Walkthrough & Guide Library</title>
+  <title>ZAFE | Walkthrough &amp; Guide Library</title>
   <style>
     /* Reset and Base Styles */
     * {
@@ -11,20 +11,23 @@
       padding: 0;
       box-sizing: border-box;
     }
-  body {
-  background-color: #0b0e14;
-  background-image: url('bg-wallpaper.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: #e2e8f0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  min-height: 100vh;
-  margin: 0;
-  padding: 60px 20px;
-}
-    /* Container */
+    body {
+      background-color: #0b0e14;
+      background-image: url('bg-wallpaper.jpg'); /* Your background wallpaper */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 100px 20px 60px 20px; /* Increased top padding from 60px to 100px so title sits lower */
+    }
+
+    /* Main Container */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -34,19 +37,19 @@
     /* Header Section */
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
     }
     .header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
     .header p {
       color: #94a3b8;
       font-size: 1.1rem;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     /* Search Bar */
@@ -56,13 +59,14 @@
     }
     .search-input {
       width: 100%;
-      background-color: #131822;
+      background-color: rgba(19, 24, 34, 0.85); /* Slightly translucent for background blend */
       border: 1px solid #1e293b;
       border-radius: 10px;
-      padding: 14px 20px;
+      padding: 16px 22px;
       color: #e2e8f0;
       font-size: 1rem;
       outline: none;
+      backdrop-filter: blur(8px);
       transition: border-color 0.2s;
     }
     .search-input:focus {
@@ -78,15 +82,16 @@
       flex-wrap: wrap;
     }
     .pill {
-      background-color: #131822;
+      background-color: rgba(19, 24, 34, 0.85);
       color: #94a3b8;
       border: 1px solid #1e293b;
-      padding: 8px 20px;
+      padding: 9px 22px;
       border-radius: 20px;
       font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
+      backdrop-filter: blur(8px);
       transition: all 0.2s;
     }
     .pill.active {
@@ -107,13 +112,14 @@
       gap: 24px;
     }
     .card {
-      background-color: #111622;
+      background-color: rgba(17, 22, 34, 0.9); /* Subtle transparency to reveal wire background */
       border: 1px solid #1e293b;
       border-radius: 16px;
       padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      backdrop-filter: blur(10px);
       transition: transform 0.2s, border-color 0.2s;
     }
     .card:hover {
@@ -160,36 +166,13 @@
       opacity: 0.8;
     }
 
-    /* Fixed Watermark Logo (Lower Right) */
-    .watermark-logo {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 90px;
-      height: 90px;
-      opacity: 0.35;
-      pointer-events: none; /* Prevents blocking clicks underneath */
-      z-index: 1000;
-      transition: opacity 0.3s ease;
-    }
-
     /* Mobile Responsive Adjustments */
     @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
       .header h1 {
         font-size: 2.2rem;
-      }
-      .watermark-logo {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 100px;
-  height: auto;
-  opacity: 0.25; /* Subtle watermark opacity */
-  mix-blend-mode: screen; /* Removes the dark box background completely */
-  filter: brightness(1.2); /* Keeps the silver logo crisp */
-  pointer-events: none;
-  z-index: 1000;
-}
       }
     }
   </style>
@@ -260,9 +243,6 @@
 
     </main>
   </div>
-
-  <!-- Watermark Logo Image in Lower Right -->
-  <img src="zafe-logo.png" alt="ZAFE Watermark" class="watermark-logo">
 
 </body>
 </html>
